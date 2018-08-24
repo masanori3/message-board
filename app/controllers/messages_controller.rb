@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
       flash[:success] = "Message が正常に投稿されました"
       redirect_to @message
     else
-      flash.now[:denger] = "Message が投稿されませんでした"
+      flash.now[:danger] = "Message が投稿されませんでした"
       render :new
     end
     
@@ -37,12 +37,12 @@ class MessagesController < ApplicationController
   def update
     
     
-      if @message.update(message_params)
-        flash[:success] = "Messag は正常に更新されました"
-      else
-        flash.now[:danger] = "Message は更新されませんでした"
-        render :edit
-      end
+    if @message.update(message_params)
+      flash[:success] = "Messag は正常に更新されました"
+    else
+      flash.now[:danger] = "Message は更新されませんでした"
+      render :edit
+    end
   end
   
   def destroy
